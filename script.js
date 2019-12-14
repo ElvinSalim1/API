@@ -52,8 +52,8 @@ fetch('https://inlupp-fa.azurewebsites.net/api/downloads')
 
     test = document.getElementById("downloads");
 
-    test.innerHTML+=data[0].offlineAmount + " " + data[0].circleValue + "<br>";
-    test.innerHTML+=data[1].onlineAmount + " " + data[1].circleValue;
+    test.innerHTML+='<p>Offlineamount / Circlevalue</p>' + data[0].offlineAmount + " / " + data[0].circleValue + "<br>";
+    test.innerHTML+='<p>Onlineamount / Circlevalue</p>' + data[1].onlineAmount + " /  " + data[1].circleValue;
 });
 
 
