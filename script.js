@@ -303,16 +303,22 @@ fetch('https://inlupp-fa.azurewebsites.net/api/total-purchases')
 
 
     
-    fetch('http://inlupp-fa.azurewebsites.net/api/tickets')
+var result="";
+fetch('https://inlupp-fa.azurewebsites.net/api/tickets')
     .then(res => res.json())
     .then(data => {
     
         for(message of data) {
+        
     
             ticket.insertAdjacentHTML('beforeend', `
                 <ul>
                     <li>Year: ${message.year}</li>
-                    <li>Tickets: ${message.tickets.name}</li>
+                    <p>Tickets:</p> ${message.tickets.map(f=>{
+                    result="";
+                    result += '<li>' + f.name + '</li>' + '<li>' + f.city + '</li>' + '<li>' + f.project + '</li>' + '<li>' + f.date + '</li>' + '<li>' + f.other + '</li>';
+                    return result;
+                    })}
                 </ul>
             `); 
         }
